@@ -1,0 +1,19 @@
+{
+    "name": "dbisso/hooker",
+    "description": "Auto class hooking for WordPress development",
+    "license": "GPL2",
+    "authors": [
+        {
+            "name": "Dan Bissonnet",
+            "email": "dan@danisadesigner.com"
+        }
+    ],
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    },
+    "require": {
+
+    }
+}
