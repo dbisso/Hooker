@@ -9,7 +9,7 @@ namespace DBisso\Util;
 /**
  * \DBisso\Util\Hooker
  */
-class Hooker {
+class Hooker implements HookerInterface {
 	/**
 	 * Reference to the class that is being parsed for hooks
 	 * @var stdClass the Class object
