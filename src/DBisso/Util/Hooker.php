@@ -1,7 +1,7 @@
 <?php
 /**
  * Provides auto-hooking for filters, actions and shortcodes
- * @version 3.2.0
+ *
  * @author Dan Bissonnet <dan@danisadesigner.com>
  */
 namespace DBisso\Util;

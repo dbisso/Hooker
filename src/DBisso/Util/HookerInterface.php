@@ -2,7 +2,6 @@
 /**
  * Provides auto-hooking for filters, actions and shortcodes.
  *
- * @version 4.0-alpha
  * @author Dan Bissonnet <dan@danisadesigner.com>
  */
 namespace DBisso\Util;
