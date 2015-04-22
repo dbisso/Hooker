@@ -50,7 +50,9 @@ class Hooker implements HookerInterface {
 	function __construct( $hooked_class = null, $hook_prefix = '' ){
 		// If a class is specified in the constructor, kick things off
 		// otherwise we wait for the hook() method to be called.
-		if ( $hooked_class ) $this->hook( $hooked_class, $hook_prefix );
+		if ( $hooked_class ) {
+			$this->hook( $hooked_class, $hook_prefix );
+		}
 	}
 
 	/**
@@ -70,8 +72,9 @@ class Hooker implements HookerInterface {
 			$method_parts  = $this->parse_method_name( $method->name );
 
 			// This method is not for hooking
-			if ( !$method_parts )
+			if ( !$method_parts ) {
 				continue;
+			}
 
 			$method_reflector = $this->class_reflector->getMethod( $method->name );
 			$statics          = $method_reflector->getStaticVariables();
@@ -112,7 +115,9 @@ class Hooker implements HookerInterface {
 			$hook_type = trim( $matches[1], '_' ); //Methods prefixed with _ are always hooked
 			$hook_name = $matches[2];
 
-			if ( !in_array( $hook_type , array( 'theme', 'action', 'filter', 'shortcode' ) ) ) return false;
+			if ( ! in_array( $hook_type , array( 'theme', 'action', 'filter', 'shortcode' ) ) ) {
+				return false;
+			}
 
 			return compact( 'hook_type', 'hook_name' );
 		}
@@ -131,7 +136,9 @@ class Hooker implements HookerInterface {
 	 * @param integer $args        The number of args
 	 */
 	private function add_hook( $hook_type, $hook_name, $method_name, $priority = 10, $args = 99 ){
-		if ( !in_array( $hook_type , array( 'theme', 'action', 'filter', 'shortcode' ) ) ) return;
+		if ( ! in_array( $hook_type , array( 'theme', 'action', 'filter', 'shortcode' ) ) ) {
+			return;
+		}
 
 		switch ( $hook_type ) {
 			case 'theme':
@@ -141,14 +148,14 @@ class Hooker implements HookerInterface {
 				add_action( $hook_name , array( $this->hooked_class, $method_name ), $priority, $args );
 				break;
 			case 'filter':
-				add_filter( $hook_name, array($this->hooked_class, $method_name), $priority, $args );
+				add_filter( $hook_name, array( $this->hooked_class, $method_name ), $priority, $args );
 				break;
 			case 'shortcode':
- 				add_shortcode( preg_replace( '|_|', '-', $hook_name ), array( $this->hooked_class, $method_name ) );
+				add_shortcode( preg_replace( '|_|', '-', $hook_name ), array( $this->hooked_class, $method_name ) );
 				break;
 		}
 
-		$this->added_hooks[$hook_type][$hook_name][$priority][] = $method_name;
+		$this->added_hooks[ $hook_type ][ $hook_name ][ $priority ][] = $method_name;
 	}
 
 	/**
@@ -157,8 +164,9 @@ class Hooker implements HookerInterface {
 	 * @return void
 	 */
 	public function add_theme_hooks(){
-		if ( empty( $this->theme_hooks ) )
+		if ( empty( $this->theme_hooks ) ) {
 			return;
+		}
 
 		try {
 			$hook_prefix = isset( $this->hook_prefix ) ? $this->hook_prefix : $this->class_reflector->getStaticPropertyValue( 'wp_hook_prefix' );
@@ -185,6 +193,6 @@ class Hooker implements HookerInterface {
 	 * @return array        Array of filters
 	 */
 	public function get_hooks( $type = null ) {
-		return $type ? $this->added_hooks[$type] : $this->added_hooks;
+		return $type ? $this->added_hooks[ $type ] : $this->added_hooks;
 	}
 }
