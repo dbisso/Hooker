@@ -14,13 +14,13 @@ class Hooker implements HookerInterface {
 	 * Reference to the class that is being parsed for hooks
 	 * @var stdClass the Class object
 	 */
-	public $hooked_class;
+	private $hooked_class;
 
 	/**
 	 * Stores a list of each method that has been hooked
 	 * @var array
 	 */
-	public $added_hooks  = array();
+	private $added_hooks  = array();
 
 	/**
 	 * String to replace 'theme_' with in methods. Allows for
@@ -28,7 +28,7 @@ class Hooker implements HookerInterface {
 	 *
 	 * @var string
 	 */
-	public $hook_prefix;
+	private $hook_prefix;
 
 	/**
 	 * Array of prefixed 'theme hooks'. These methods are prefixed with 'theme_'
@@ -47,7 +47,7 @@ class Hooker implements HookerInterface {
 	 * @param mixed  $hooked_class A class to hook
 	 * @param string $hook_prefix  Optional hook prefix
 	 */
-	function __construct( $hooked_class = null, $hook_prefix = '' ){
+	public function __construct( $hooked_class = null, $hook_prefix = '' ){
 		// If a class is specified in the constructor, kick things off
 		// otherwise we wait for the hook() method to be called.
 		if ( $hooked_class ) {
