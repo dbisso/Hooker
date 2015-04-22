@@ -1,7 +1,7 @@
 {
     "name": "dbisso/hooker",
     "description": "Auto class hooking for WordPress development",
-    "license": "GPL2",
+    "license": "GPL-2.0+",
     "authors": [
         {
             "name": "Dan Bissonnet",
