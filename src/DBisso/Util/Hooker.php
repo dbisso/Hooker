@@ -72,7 +72,7 @@ class Hooker implements HookerInterface {
 			$method_parts  = $this->parse_method_name( $method->name );
 
 			// This method is not for hooking
-			if ( !$method_parts ) {
+			if ( ! $method_parts ) {
 				continue;
 			}
 
