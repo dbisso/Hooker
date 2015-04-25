@@ -11,5 +11,5 @@ namespace DBisso\Hooker;
  * \DBisso\Util\HookableInterface
  */
 interface HookableInterface {
-	static public function bootstrap( HookerInterface $hooker );
+	public function hook( HookerInterface $hooker );
 }
