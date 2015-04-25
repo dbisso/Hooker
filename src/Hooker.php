@@ -195,4 +195,13 @@ class Hooker implements HookerInterface {
 	public function get_hooks( $type = null ) {
 		return $type ? $this->added_hooks[ $type ] : $this->added_hooks;
 	}
+
+	/**
+	 * Getter for hook_prefix.
+	 *
+	 * @return string The hook prefix.
+	 */
+	public function get_prefix() {
+		return $this->hook_prefix;
+	}
 }
