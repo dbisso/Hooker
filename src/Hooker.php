@@ -169,7 +169,11 @@ class Hooker implements HookerInterface {
 		}
 
 		try {
-			$hook_prefix = isset( $this->hook_prefix ) ? $this->hook_prefix : $this->class_reflector->getStaticPropertyValue( 'wp_hook_prefix' );
+			$hook_prefix = isset( $this->hook_prefix ) ? $this->hook_prefix : null ;
+
+			if ( ! $hook_prefix ) {
+				throw new \Exception( sprintf( 'Prefixed hooks were specified but no hook prefix was set. [hooked class: %s]', get_class( $this->hooked_class ) ) );
+			}
 
 			foreach ( $this->theme_hooks as $theme_hook ) {
 				$method_parts = $this->parse_method_name( $theme_hook[0] );
