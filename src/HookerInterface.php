@@ -4,7 +4,7 @@
  *
  * @author Dan Bissonnet <dan@danisadesigner.com>
  */
-namespace DBisso\Util;
+namespace DBisso\Hooker;
 
 /**
  * \DBisso\Util\Hooker
