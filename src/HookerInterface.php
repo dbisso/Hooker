@@ -10,6 +10,6 @@ namespace DBisso\Hooker;
  * \DBisso\Util\Hooker
  */
 interface HookerInterface {
-	public function hook( $hooked_class = null, $hook_prefix = '' );
+	public function hook( $hooked_class = null, $prefix = null );
 }
 
