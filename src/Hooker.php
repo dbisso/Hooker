@@ -6,9 +6,6 @@
  */
 namespace DBisso\Hooker;
 
-/**
- * \DBisso\Util\Hooker
- */
 class Hooker implements HookerInterface {
 	/**
 	 * Reference to the class that is being parsed for hooks
