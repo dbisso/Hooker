@@ -9,9 +9,9 @@
         }
     ],
     "autoload": {
-        "psr-4": [
-            { "DBisso\\Hooker": "src/" }
-        ]
+        "psr-4": {
+            "DBisso\\Hooker\\": "src/"
+        }
     },
     "require": {
 
