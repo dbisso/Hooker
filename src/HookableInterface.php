@@ -8,5 +8,5 @@
 namespace DBisso\Hooker;
 
 interface HookableInterface {
-	public function hook( HookerInterface $hooker );
+	public function hook( HookerInterface $hooker, $prefix = null );
 }
